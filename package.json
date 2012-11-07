@@ -1,0 +1,23 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.1",
+    "jade": "*",
+    "less-middleware": "*",
+    "connect":"*",
+    "connect-redis":"*",
+    "mime":"*",
+    "nib":"*",
+    "qs":"*",
+    "redis":"*",
+    "socket.io":"*",
+    "socket.io-client":"*",
+    "stylus":"*",
+    "uglify-js":"*"
+  }
+}
