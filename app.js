@@ -6,10 +6,9 @@ var express = require('express'),
   http = require('http'),
   fs = require('fs'),
   path = require('path'),
-  url = require('url'),
-  parseCookie = require('connect').utils.parseCookie,
-  MemoryStore = require('connect/middleware/session/memory');
-
+  url = require('url');
+  parseCookie = require('connect').utils.parseCookie;
+  //MemoryStore = require('connect/middleware/session/memory');
 
 var app = express();
 app.configure(function () {
@@ -21,10 +20,12 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
+  app.sessionStore = new express.session.MemoryStore();
   app.use(express.session(
     {
-      secret:'wyq',
-      store:storeMemory
+      secret:'foo' + Math.random(),
+      store:app.sessionStore,
+      key:'connect.sid'
     }
   ));
   app.use(app.router);
@@ -37,10 +38,10 @@ app.configure('development', function () {
 });
 
 //=================私人聊天使用session==============
-var usersWS = {}, //私人聊天用的websocket
-  storeMemory = new MemoryStore({
-    reapInterval:60000 * 10
-  });
+var usersWS = {}; //私人聊天用的websocket
+/*storeMemory = new MemoryStore({
+  reapInterval:60000 * 10
+});*/
 
 //=========================URL=============================
 /**
@@ -89,11 +90,15 @@ var io = sio.listen(server);
 //设置session
 io.set('authorization', function (handshakeData, callback) {
   // 通过客户端的cookie字符串来获取其session数据
-  handshakeData.cookie = parseCookie(handshakeData.headers.cookie)
+  handshakeData.cookie = parseCookie(handshakeData.headers.cookie);
   var connect_sid = handshakeData.cookie['connect.sid'];
 
   if (connect_sid) {
-    storeMemory.get(connect_sid, function (error, session) {
+    var regx = /[:][a-zA-Z0-9\/]*/;
+    connect_sid =  String(connect_sid.match(regx)).substring(1);
+    handshakeData.sessionID = connect_sid;
+    handshakeData.sessionStore = app.sessionStore;
+    app.sessionStore.get(connect_sid, function (error, session) {
       if (error) {
         // if we cannot grab a session, turn down the connection
         callback(error.message, false);
