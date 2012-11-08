@@ -1,5 +1,14 @@
 !function (win, doc, $, io) {
+  //建立Websocket连接
   var socket = io.connect();
+
+  // 格式化消息
+  function formatHTML(html) {
+    html = html.replace(/</g, '&lt;');
+    html = html.replace(/>/g, '&gt;');
+    return html;
+  }
+
   // 显示一条消息
   var showmessage = function (from, msg, type) {
     var from = formatHTML(from);
@@ -7,22 +16,23 @@
     type = !type ? '' : 'type-' + type;
     form = type === 'private' ? form + '[私聊]' : from;
     var html = '<div class="line ' + type + '">\
-	<div class="message-header">\
-		<span class="message-from">' +
-      from +
-      '</span>\
-      <span class="message-timestamp">' +
-      new Date() +
-      '</span>\
-    </div>\
-    <div class="message-text">\
-      ' +
-      msg +
-      '\
-    </div>\
-  </div>';
+	                <div class="message-header">\
+		                <span class="message-from">' +
+                      from +
+                    '</span>\
+                    <span class="message-timestamp">' +
+                      new Date().toLocaleString().replace(/GMT\+0800/,'') +
+                    '</span>\
+                  </div>\
+                  <div class="message-text">\
+                    ' +
+                    msg +
+                    '\
+                  </div>\
+                </div>';
     $('#lines').append(html).scrollTop(+1000);
-  }
+  };
+
   // 显示在线列表
   var showonline = function (n) {
     var html = '';
@@ -30,7 +40,7 @@
       html += '<div class="line" onclick="private_message(\'' + v + '\')">' + v + '</div>';
     });
     $('#nicknames').html(html);
-  }
+  };
 
   // 清空所有消息
   var clearmessage = function () {
@@ -144,12 +154,6 @@
     });
 
   };
-  // 格式化消息
-  function formatHTML(html) {
-    html = html.replace(/</g, '&lt;');
-    html = html.replace(/>/g, '&gt;');
-    return html;
-  }
 
   init();
   win.private_message = private_message;
