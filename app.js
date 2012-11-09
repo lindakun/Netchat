@@ -94,8 +94,13 @@ io.set('authorization', function (handshakeData, callback) {
   var connect_sid = handshakeData.cookie['connect.sid'];
 
   if (connect_sid) {
-    var regx = /[:][a-zA-Z0-9\/]*/;
-    connect_sid =  String(connect_sid.match(regx)).substring(1);
+    //var regx = /[:][a-zA-Z0-9\/+]*/;
+    //console.log(connect_sid);
+    //connect_sid =  String(connect_sid.match(regx)).substring(1);
+    console.log(connect_sid);
+    var array = connect_sid.split(".");
+    connect_sid = array[0].split(":")[1];
+    console.log(connect_sid);
     handshakeData.sessionID = connect_sid;
     handshakeData.sessionStore = app.sessionStore;
     app.sessionStore.get(connect_sid, function (error, session) {
