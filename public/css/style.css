@@ -14,7 +14,7 @@ body{
   position: fixed;
   right: 0;
   top: 0;
-	bottom: 105px;
+	bottom: 205px;
 }
 
 #connecting .wrap {
@@ -28,7 +28,7 @@ body{
 	float: left;
 	width: 840px;
 	position:fixed;
-	bottom:110px;
+	bottom:210px;
 	top:0;
 }
 #lines {
@@ -42,7 +42,7 @@ body{
 	height: 100px;
 	left: 0px;
 	right: 0px;
-	bottom: 0px;
+	bottom: 100px;
 	margin: auto;
 	font-size: 14px;
 }
@@ -54,6 +54,8 @@ body{
   height: 80px;
 }
 #send-message button {
+  margin-top: 10px;
+  margin-left: 2px;
   padding: 20px 18px;
   background-color: #0087BC;
   border: 2px solid #0087BC;
@@ -119,12 +121,12 @@ body{
 	width: 150px;
 	position:fixed;
 	top:0;
-	bottom:110px;
+	bottom:210px;
 }
 #chat #online #nicknames {
 	position:fixed;
 	top:40px;
-	bottom:110px;
+	bottom:210px;
 	overflow-y: scroll;
 	width:145px;
 }

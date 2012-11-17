@@ -156,8 +156,6 @@ io.sockets.on('connection', function (socket) {
       socket.emit('message error', to, msg);
     }
   });
-
-
   //掉线，断开链接处理
   socket.on('disconnect', function () {
     delete usersWS[name];

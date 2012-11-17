@@ -39,6 +39,8 @@
                   </div>\
                 </div><div style="clear:both;"></div>';
     $('#lines').append(html).scrollTop(+1000);
+    //添加表情处理
+    $(".message-text:last").emotionsToHtml();
   };
 
   // 显示在线列表
@@ -129,7 +131,7 @@
       $('.room #connecting').fadeOut();
       $('.room #chat').fadeIn();
       clearmessage();
-      showmessage('系统', '成功登陆聊天室!在发送的消息前面加”@对方名字“+空格+消息 或者点击成员列表可以给某人发送私信哦。', 'system');
+      showmessage('系统信息', '成功登陆聊天室!在发送的消息前面加”@对方名字“+空格+消息 或者点击成员列表可以给某人发送私信哦。', 'system');
     });
 
     // 接收到公共消息
@@ -144,7 +146,7 @@
 
     // 接收到系统信息
     socket.on('system message', function (msg) {
-      showmessage('系统', msg, 'system');
+      showmessage('系统信息', msg, 'system');
     });
 
     // 刷新在线列表
@@ -154,7 +156,7 @@
 
     // 发送消息失败
     socket.on('message error', function (to, msg) {
-      showmessage('系统', '刚才发送给“' + to + '”的消息“' + msg + '”不成功！', 'error');
+      showmessage('系统信息', '刚才发送给“' + to + '”的消息“' + msg + '”不成功！', 'error');
     });
   };
 
