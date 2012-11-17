@@ -6,6 +6,8 @@
   function formatHTML(html) {
     html = html.replace(/</g, '&lt;');
     html = html.replace(/>/g, '&gt;');
+    html = html.replace(/\n/g, '<br/>');
+    //console.log(html);
     return html;
   }
 
@@ -14,7 +16,13 @@
     var from = formatHTML(from);
     var msg = formatHTML(msg);
     type = !type ? '' : 'type-' + type;
-    form = type === 'private' ? form + '[私聊]' : from;
+    //form = type === 'private' ? form + '[私聊]' : from;
+    if(from === userName){
+      if(type === 'private'){
+        from = '我对';
+      }
+      from = '我';
+    }
     var html = '<div class="line ' + type + '">\
 	                <div class="message-header">\
 		                <span class="message-from">' +
@@ -29,7 +37,7 @@
                     msg +
                     '\
                   </div>\
-                </div>';
+                </div><div style="clear:both;"></div>';
     $('#lines').append(html).scrollTop(+1000);
   };
 
@@ -37,7 +45,11 @@
   var showonline = function (n) {
     var html = '';
     n.forEach(function (v) {
-      html += '<div class="line" onclick="private_message(\'' + v + '\')">' + v + '</div>';
+      if(v == userName) {
+        html += '<div class="line">我[' + v + ']</div>';
+      } else {
+        html += '<div class="line" onclick="private_message(\'' + v + '\')">' + v + '</div>';
+      }
     });
     $('#nicknames').html(html);
   };
@@ -79,6 +91,7 @@
     }
   }
 
+  //发送一条消息
   var sendmessage = function () {
     var msg = $.trim($('#message').val());
     if (msg.length === 0) {
@@ -93,7 +106,7 @@
         msg = msg.substr(p + 1);
         socket.emit('private message', to, msg, function (ok) {
           if (ok) {
-            showmessage(userName, msg, 'own');
+            showmessage('你对【' + to + '】说', msg, 'own');
             $('#message').val('');
           }
         });
@@ -109,17 +122,19 @@
       }
     });
   }
+
+  //设置接受消息监听器
   var listener = function () {
     socket.on('connect', function () {
       $('.room #connecting').fadeOut();
       $('.room #chat').fadeIn();
       clearmessage();
-      showmessage('系统', '已进入房间!在发送的消息前面加”@对方名字“+空格+消息可以给某人发送私信。', 'system');
+      showmessage('系统', '成功登陆聊天室!在发送的消息前面加”@对方名字“+空格+消息 或者点击成员列表可以给某人发送私信哦。', 'system');
     });
 
     // 接收到公共消息
     socket.on('public message', function (from, msg) {
-      showmessage(from, msg);
+      showmessage(from, msg, 'others');
     });
 
     // 接收到私人信息
@@ -147,7 +162,7 @@
     listener();
     $('#btn').click(sendmessage);
     $('#message').keypress(function (e) {
-      if (e.keyCode === 13) {
+      if (e.keyCode === 13 && event.ctrlKey) {
         sendmessage();
         return false;
       }

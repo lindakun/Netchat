@@ -6,8 +6,9 @@ var express = require('express'),
   http = require('http'),
   fs = require('fs'),
   path = require('path'),
-  url = require('url');
-  parseCookie = require('connect').utils.parseCookie;
+  url = require('url'),
+  utils = require('connect').utils,
+  cookie = require('cookie');
   //MemoryStore = require('connect/middleware/session/memory');
 
 var app = express();
@@ -25,7 +26,7 @@ app.configure(function () {
     {
       secret:'foo' + Math.random(),
       store:app.sessionStore,
-      key:'connect.sid'
+      key:'ssid'
     }
   ));
   app.use(app.router);
@@ -88,10 +89,10 @@ var server = http.createServer(app);
 var io = sio.listen(server);
 
 //设置session
-io.set('authorization', function (handshakeData, callback) {
-  // 通过客户端的cookie字符串来获取其session数据
-  handshakeData.cookie = parseCookie(handshakeData.headers.cookie);
-  var connect_sid = handshakeData.cookie['connect.sid'];
+io.set('authorization', function (req, callback) {
+  // 通过客户端的cookie字符串来获取其sessionId
+  var oCookie = utils.parseJSONCookies(cookie.parse(decodeURIComponent(req.headers.cookie)));
+  var connect_sid = oCookie['ssid'];
 
   if (connect_sid) {
     //var regx = /[:][a-zA-Z0-9\/+]*/;
@@ -100,9 +101,8 @@ io.set('authorization', function (handshakeData, callback) {
     //console.log(connect_sid);
     var array = connect_sid.split(".");
     connect_sid = array[0].split(":")[1];
-    //console.log(connect_sid);
-    handshakeData.sessionID = connect_sid;
-    handshakeData.sessionStore = app.sessionStore;
+    req.sessionID = connect_sid;
+    req.sessionStore = app.sessionStore;
     app.sessionStore.get(connect_sid, function (error, session) {
       if (error) {
         // if we cannot grab a session, turn down the connection
@@ -110,13 +110,12 @@ io.set('authorization', function (handshakeData, callback) {
       }
       else {
         // save the session data and accept the connection
-        handshakeData.session = session;
+        req.session = session;
         callback(null, true);
       }
     });
-  }
-  else {
-    callback('nosession');
+  } else {
+    callback('no cookie', false);
   }
 });
 
@@ -135,7 +134,7 @@ io.sockets.on('connection', function (socket) {
       n.push(i);
     }
     io.sockets.emit('online list', n);//所有人广播
-  }
+  };
   refresh_online();
 
   socket.broadcast.emit('system message', '【' + name + '】回来了，大家赶紧去找TA聊聊~~');
@@ -150,10 +149,10 @@ io.sockets.on('connection', function (socket) {
     var target = usersWS[to];
     if (target) {
       fn(true);
-      target.emit('private message', name + '[私信]', msg);
+      target.emit('private message', '【' + name + '】对你说', msg);
     }
     else {
-      fn(false)
+      fn(false);
       socket.emit('message error', to, msg);
     }
   });

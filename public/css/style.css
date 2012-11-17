@@ -6,15 +6,15 @@ body{
 .clearfix{display:block;zoom:1;}
 .clearfix:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
 .room {
-	width: 960px;
+	width: 1000px;
 	left: 0;
 	border:2px solid #0087BC;
 	border-top:none;
-    margin: auto;
-    position: fixed;
-    right: 0;
-    top: 0;
-	bottom:30px;
+  margin: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+	bottom: 105px;
 }
 
 #connecting .wrap {
@@ -26,9 +26,9 @@ body{
 }
 #messages {
 	float: left;
-	width: 800px;
+	width: 840px;
 	position:fixed;
-	bottom:35px;
+	bottom:110px;
 	top:0;
 }
 #lines {
@@ -38,8 +38,8 @@ body{
 
 #send-message {
 	position: fixed;
-	width: 964px;
-	height: 30px;
+	width: 1000px;
+	height: 100px;
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
@@ -47,21 +47,23 @@ body{
 	font-size: 14px;
 }
 #send-message #message {
-	border: 2px solid #0087BC;
+  float: left;
+  border: 1px solid #0087BC;
 	padding: 4px;
-	width: 880px;
+	width: 910px;
+  height: 80px;
 }
 #send-message button {
-	padding: 4px 10px;
-	background-color: #0087BC;
-	border: 2px solid #0087BC;
-	color: white;
-	font-weight: bold;
-	border-radius: 6px;
+  padding: 20px 18px;
+  background-color: #0087BC;
+  border: 2px solid #0087BC;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
 }
 #messages #lines .line {
 	font-size: 14px;
-	margin: 10px;
+	margin: 5px;
 	border: 1px solid #F2F2F2;
 	padding: 8px;
 	border-radius: 10px;
@@ -71,8 +73,17 @@ body{
 }
 .line .message-from {
 	font-weight: bold;
+  font-size: 12px;
 	color: #00781E;
 	padding-right: 20px;
+}
+.type-own .message-header{
+  text-align: right;
+}
+.type-own .message-from{
+  float: right;
+  padding-right: 0px;
+  padding-left: 20px;
 }
 .line .message-timestamp {
 	color: #989898;
@@ -82,30 +93,38 @@ body{
 .line .message-text {
 	font-size: 14px;
 }
+.type-own .message-text{
+  text-align: right;
+}
 .type-error {
 	background-color: #FFECE4;
 }
 .type-own {
+  float: right;
 	background-color: #F3FFF0;
 }
 .type-system {
 	background-color: #FFECE4;
 }
 .type-private {
+  float: left;
 	background-color: #ECF3FF;
 }
+.type-others {
+  float: left;
+  background-color: #dde4f8;
+}
 #online{
-	margin-left:810px;
+	margin-left:850px;
 	width: 150px;
 	position:fixed;
 	top:0;
-	bottom:35px;
-	marign:auto;
+	bottom:110px;
 }
 #chat #online #nicknames {
 	position:fixed;
 	top:40px;
-	bottom:35px;
+	bottom:110px;
 	overflow-y: scroll;
 	width:145px;
 }
