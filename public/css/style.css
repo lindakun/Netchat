@@ -28,33 +28,41 @@ body{
 	float: left;
 	width: 840px;
 	position:fixed;
-	bottom:210px;
+	bottom:250px;
 	top:0;
 }
 #lines {
 	overflow-y: scroll;
 	height:100%;
 }
-
+#tool-bar {
+    position: fixed;
+    width: 1000px;
+    height: 40px;
+    left: 0px;
+    right: 0px;
+    bottom: 165px;
+    margin: auto;
+}
 #send-message {
 	position: fixed;
 	width: 1000px;
 	height: 100px;
 	left: 0px;
 	right: 0px;
-	bottom: 100px;
+	bottom: 75px;
 	margin: auto;
 	font-size: 14px;
 }
 #send-message #message {
   float: left;
   border: 1px solid #0087BC;
-	padding: 4px;
-	width: 910px;
+  padding: 4px;
+  width: 820px;
   height: 80px;
 }
 #send-message button {
-  margin-top: 10px;
+  margin-top: 2px;
   margin-left: 2px;
   padding: 20px 18px;
   background-color: #0087BC;
@@ -121,12 +129,12 @@ body{
 	width: 150px;
 	position:fixed;
 	top:0;
-	bottom:210px;
+	bottom:250px;
 }
 #chat #online #nicknames {
 	position:fixed;
 	top:40px;
-	bottom:210px;
+	bottom:250px;
 	overflow-y: scroll;
 	width:145px;
 }
@@ -140,4 +148,8 @@ body{
 #online h2{
 	font-weight:bold;
 	font-size:14px;
+}
+#message_face{
+ margin: 2px;
+ padding: 0;
 }

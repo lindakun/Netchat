@@ -19,13 +19,13 @@ block content
         .title 在线成员列表
         #nicknames.scrollbar
       //发送消息区域
+    #tool-bar
+      a#message_face(href="javascript:void(0);")
+        img(src="/img/tool.png", alt="表情", title="表情")
     #send-message
       textarea#message
-      div
-        a#message_face(href="javascript:void(0);")
-          img(src="/emotions/1.gif", alt="表情", title="表情")
       button#btn 发送
   script(type="text/javascript")
     var userName = '#{name}';
-    $("#message_face").jqfaceedit({txtAreaObj:$("#message"), textareaid:"message", containerObj:$('#send-message'), top: 0, left:-550});
+    $("#message_face").jqfaceedit({txtAreaObj:$("#message"), textareaid:"message", containerObj:$('#tool-bar'), top: -218, left:-2});
   script(src='/js/index.js')

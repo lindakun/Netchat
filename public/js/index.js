@@ -131,7 +131,7 @@
       $('.room #connecting').fadeOut();
       $('.room #chat').fadeIn();
       clearmessage();
-      showmessage('系统信息', '成功登陆聊天室!在发送的消息前面加”@对方名字“+空格+消息 或者点击成员列表可以给某人发送私信哦。', 'system');
+      showmessage('系统信息', '成功登陆聊天室!在发送的消息前面加”@对方名字“+空格+消息 或者点击成员列表可以给某人发送私信哦。(发送快捷键 Ctrl+Enter)', 'system');
     });
 
     // 接收到公共消息
@@ -164,12 +164,11 @@
     listener();
     $('#btn').click(sendmessage);
     $('#message').keypress(function (e) {
-      if (e.keyCode === 13 && event.ctrlKey) {
+      if ((e.keyCode === 13 || e.keyCode === 10) && e.ctrlKey) {
         sendmessage();
         return false;
       }
     });
-
   };
 
   init();
