@@ -1,0 +1,363 @@
+div.container-fluid
+  .row-fluid
+    // left menu starts
+    include left
+    noscript
+      .alert.alert-block.span10
+        h4.alert-heading Warning!
+        p
+          | You need to have
+          a(href='http://en.wikipedia.org/wiki/JavaScript', target='_blank') JavaScript
+          | enabled to use this site.
+    #content.span10
+      // content starts
+      div
+        ul.breadcrumb
+          li
+            a(href='#') Home
+            span.divider /
+          li
+            a(href='#') Dashboard
+      .sortable.row-fluid
+        a.well.span3.top-block(data-rel='tooltip', title='6 new members.', href='#')
+          span.icon32.icon-red.icon-user
+          div Total Members
+          div 507
+          span.notification 6
+        a.well.span3.top-block(data-rel='tooltip', title='4 new pro members.', href='#')
+          span.icon32.icon-color.icon-star-on
+          div Pro Members
+          div 228
+          span.notification.green 4
+        a.well.span3.top-block(data-rel='tooltip', title='$34 new sales.', href='#')
+          span.icon32.icon-color.icon-cart
+          div Sales
+          div $13320
+          span.notification.yellow $34
+        a.well.span3.top-block(data-rel='tooltip', title='12 new messages.', href='#')
+          span.icon32.icon-color.icon-envelope-closed
+          div Messages
+          div 25
+          span.notification.red 12
+      .row-fluid
+        .box.span12
+          .box-header.well
+            h2
+              i.icon-info-sign
+              | Introduction
+            .box-icon
+              a.btn.btn-setting.btn-round(href='#')
+                i.icon-cog
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content
+            h1
+              | Charisma
+              small free, premium quality, responsive, multiple skin admin template.
+            p
+              | Its a live demo of the template. I have created Charisma to ease the repeat work I have to do on my projects. Now I re-use Charisma as a base for my admin panel work and I am sharing it with you :)
+            p
+              b
+                | All pages in the menu are functional, take a look at all, please share this with your followers.
+            p.center
+              a.btn.btn-large.btn-primary(href='http://usman.it/free-responsive-admin-template')
+                i.icon-chevron-left.icon-white
+                | Back to article
+              a.btn.btn-large(href='http://usman.it/free-responsive-admin-template')
+                i.icon-download-alt
+                | Download Page
+            .clearfix
+      .row-fluid.sortable
+        .box.span4
+          .box-header.well
+            h2
+              i.icon-th
+              | Tabs
+            .box-icon
+              a.btn.btn-setting.btn-round(href='#')
+                i.icon-cog
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content
+            ul#myTab.nav.nav-tabs
+              li.active
+                a(href='#info') Info
+              li
+                a(href='#custom') Custom
+              li
+                a(href='#messages') Messages
+            #myTabContent.tab-content
+              #info.tab-pane.active
+                h3
+                  | Charisma
+                  small a fully featued template
+                p
+                  | Its a fully featured, responsive template for your admin panel. Its optimized for tablet and mobile phones. Scan the QR code below to view it in your mobile device.
+                img.charisma_qr.center(alt='QR Code', src='img/qrcode136.png')
+              #custom.tab-pane
+                h3
+                  | Custom
+                  small small text
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor.
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+              #messages.tab-pane
+                h3
+                  | Messages
+                  small small text
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor.
+        // /span
+        .box.span4
+          .box-header.well(data-original-title='data-original-title')
+            h2
+              i.icon-user
+              | Member Activity
+            .box-icon
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content
+            .box-content
+              ul.dashboard-list
+                li
+                  a(href='#')
+                    img.dashboard-avatar(alt='Usman', src='http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50')
+                  strong Name:
+                  a(href='#')
+                    | Usman
+                  br
+                  strong Since:
+                  | 17/05/2012
+                  br
+                  strong Status:
+                  span.label.label-success Approved
+                li
+                  a(href='#')
+                    img.dashboard-avatar(alt='Sheikh Heera', src='http://www.gravatar.com/avatar/3232415a0380253cfffe19163d04acab.png?s=50')
+                  strong Name:
+                  a(href='#')
+                    | Sheikh Heera
+                  br
+                  strong Since:
+                  | 17/05/2012
+                  br
+                  strong Status:
+                  span.label.label-warning Pending
+                li
+                  a(href='#')
+                    img.dashboard-avatar(alt='Abdullah', src='http://www.gravatar.com/avatar/46056f772bde7c536e2086004e300a04.png?s=50')
+                  strong Name:
+                  a(href='#')
+                    | Abdullah
+                  br
+                  strong Since:
+                  | 25/05/2012
+                  br
+                  strong Status:
+                  span.label.label-important Banned
+                li
+                  a(href='#')
+                    img.dashboard-avatar(alt='Saruar Ahmed', src='http://www.gravatar.com/avatar/564e1bb274c074dc4f6823af229d9dbb.png?s=50')
+                  strong Name:
+                  a(href='#')
+                    | Saruar Ahmed
+                  br
+                  strong Since:
+                  | 17/05/2012
+                  br
+                  strong Status:
+                  span.label.label-info Updates
+        // /span
+        .box.span4
+          .box-header.well(data-original-title='data-original-title')
+            h2
+              i.icon-list-alt
+              | Realtime Traffic
+            .box-icon
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content
+            #realtimechart(style='height: 190px;')
+            p.clearfix
+              | You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.
+            p
+              | Time between updates:
+              input#updateInterval(type='text', value='', style='text-align: right; width: 5em;')
+              | milliseconds
+        // /span
+      // /row
+      .row-fluid.sortable
+        .box.span4
+          .box-header.well(data-original-title='data-original-title')
+            h2
+              i.icon-list
+              | Buttons
+            .box-icon
+              a.btn.btn-setting.btn-round(href='#')
+                i.icon-cog
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content.buttons
+            p.btn-group
+              button.btn Left
+              button.btn Middle
+              button.btn Right
+            p
+              button.btn.btn-small
+                i.icon-star
+                | Icon button
+              button.btn.btn-small.btn-primary Small button
+              button.btn.btn-small.btn-danger Small button
+            p
+              button.btn.btn-small.btn-warning Small button
+              button.btn.btn-small.btn-success Small button
+              button.btn.btn-small.btn-info Small button
+            p
+              button.btn.btn-small.btn-inverse Small button
+              button.btn.btn-large.btn-primary.btn-round Round button
+              button.btn.btn-large.btn-round
+                i.icon-ok
+              button.btn.btn-primary
+                i.icon-edit.icon-white
+            p
+              button.btn.btn-mini Mini button
+              button.btn.btn-mini.btn-primary Mini button
+              button.btn.btn-mini.btn-danger Mini button
+              button.btn.btn-mini.btn-warning Mini button
+            p
+              button.btn.btn-mini.btn-info Mini button
+              button.btn.btn-mini.btn-success Mini button
+              button.btn.btn-mini.btn-inverse Mini button
+        // /span
+        .box.span4
+          .box-header.well(data-original-title='data-original-title')
+            h2
+              i.icon-list
+              | Buttons
+            .box-icon
+              a.btn.btn-setting.btn-round(href='#')
+                i.icon-cog
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content.buttons
+            p
+              button.btn.btn-large Large button
+              button.btn.btn-large.btn-primary Large button
+            p
+              button.btn.btn-large.btn-danger Large button
+              button.btn.btn-large.btn-warning Large button
+            p
+              button.btn.btn-large.btn-success Large button
+              button.btn.btn-large.btn-info Large button
+            p
+              button.btn.btn-large.btn-inverse Large button
+            .btn-group
+              button.btn.btn-large Large Dropdown
+              button.btn.btn-large.dropdown-toggle(data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#')
+                    i.icon-star
+                    | Action
+                li
+                  a(href='#')
+                    i.icon-tag
+                    | Another action
+                li
+                  a(href='#')
+                    i.icon-download-alt
+                    | Something else here
+                li.divider
+                li
+                  a(href='#')
+                    i.icon-tint
+                    | Separated link
+        // /span
+        .box.span4
+          .box-header.well(data-original-title='data-original-title')
+            h2
+              i.icon-list
+              | Weekly Stat
+            .box-icon
+              a.btn.btn-setting.btn-round(href='#')
+                i.icon-cog
+              a.btn.btn-minimize.btn-round(href='#')
+                i.icon-chevron-up
+              a.btn.btn-close.btn-round(href='#')
+                i.icon-remove
+          .box-content
+            ul.dashboard-list
+              li
+                a(href='#')
+                  i.icon-arrow-up
+                  span.green 92
+                  | New Comments
+              li
+                a(href='#')
+                  i.icon-arrow-down
+                  span.red 15
+                  | New Registrations
+              li
+                a(href='#')
+                  i.icon-minus
+                  span.blue 36
+                  | New Articles
+              li
+                a(href='#')
+                  i.icon-comment
+                  span.yellow 45
+                  | User reviews
+              li
+                a(href='#')
+                  i.icon-arrow-up
+                  span.green 112
+                  | New Comments
+              li
+                a(href='#')
+                  i.icon-arrow-down
+                  span.red 31
+                  | New Registrations
+              li
+                a(href='#')
+                  i.icon-minus
+                  span.blue 93
+                  | New Articles
+              li
+                a(href='#')
+                  i.icon-comment
+                  span.yellow 254
+                  | User reviews
+  hr
+  #myModal.modal.hide.fade
+    .modal-header
+      button.close(type='button', data-dismiss='modal') ×
+      h3 Settings
+    .modal-body
+      p Here settings can be configured...
+    .modal-footer
+      a.btn(href='#', data-dismiss='modal') Close
+      a.btn.btn-primary(href='#') Save changes
+  footer
+    p.pull-left
+      | ©
+      a(href='http://usman.it', target='_blank') Muhammad Usman
+      | 2012
+    p.pull-right
+      | Powered by:
+      a(href='http://usman.it/free-responsive-admin-template') Charisma

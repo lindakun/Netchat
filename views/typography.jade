@@ -1,0 +1,445 @@
+!!! 5
+html(lang='en')
+  head
+    //
+      		Charisma v1.0.0
+      		Copyright 2012 Muhammad Usman
+      		Licensed under the Apache License v2.0
+      		http://www.apache.org/licenses/LICENSE-2.0
+      		http://usman.it
+      		http://twitter.com/halalit_usman
+      	
+    meta(charset='utf-8')
+    title Free HTML5 Bootstrap Admin Template
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.')
+    meta(name='author', content='Muhammad Usman')
+    // The styles
+    link#bs-css(href='css/bootstrap-cerulean.css', rel='stylesheet')
+    style(type='text/css')
+      body {
+      padding-bottom: 40px;
+      }
+      .sidebar-nav {
+      padding: 9px 0;
+      }
+    link(href='css/bootstrap-responsive.css', rel='stylesheet')
+    link(href='css/charisma-app.css', rel='stylesheet')
+    link(href='css/jquery-ui-1.8.21.custom.css', rel='stylesheet')
+    link(href='css/fullcalendar.css', rel='stylesheet')
+    link(href='css/fullcalendar.print.css', rel='stylesheet', media='print')
+    link(href='css/chosen.css', rel='stylesheet')
+    link(href='css/uniform.default.css', rel='stylesheet')
+    link(href='css/colorbox.css', rel='stylesheet')
+    link(href='css/jquery.cleditor.css', rel='stylesheet')
+    link(href='css/jquery.noty.css', rel='stylesheet')
+    link(href='css/noty_theme_default.css', rel='stylesheet')
+    link(href='css/elfinder.min.css', rel='stylesheet')
+    link(href='css/elfinder.theme.css', rel='stylesheet')
+    link(href='css/jquery.iphone.toggle.css', rel='stylesheet')
+    link(href='css/opa-icons.css', rel='stylesheet')
+    link(href='css/uploadify.css', rel='stylesheet')
+    // The HTML5 shim, for IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    // The fav icon
+    link(rel='shortcut icon', href='img/favicon.ico')
+  body
+    // topbar starts
+    .navbar
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.top-nav.nav-collapse,.sidebar-nav.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='index.html')
+            img(alt='Charisma Logo', src='img/logo20.png')
+            span Charisma
+          // theme selector starts
+          .btn-group.pull-right.theme-container
+            a.btn.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.icon-tint
+              span.hidden-phone  Change Theme / Skin
+              span.caret
+            ul#themes.dropdown-menu
+              li
+                a(data-value='classic', href='#')
+                  i.icon-blank
+                  | Classic
+              li
+                a(data-value='cerulean', href='#')
+                  i.icon-blank
+                  | Cerulean
+              li
+                a(data-value='cyborg', href='#')
+                  i.icon-blank
+                  | Cyborg
+              li
+                a(data-value='redy', href='#')
+                  i.icon-blank
+                  | Redy
+              li
+                a(data-value='journal', href='#')
+                  i.icon-blank
+                  | Journal
+              li
+                a(data-value='simplex', href='#')
+                  i.icon-blank
+                  | Simplex
+              li
+                a(data-value='slate', href='#')
+                  i.icon-blank
+                  | Slate
+              li
+                a(data-value='spacelab', href='#')
+                  i.icon-blank
+                  | Spacelab
+              li
+                a(data-value='united', href='#')
+                  i.icon-blank
+                  | United
+          // theme selector ends
+          // user dropdown starts
+          .btn-group.pull-right
+            a.btn.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.icon-user
+              span.hidden-phone  admin
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Profile
+              li.divider
+              li
+                a(href='login.html') Logout
+          // user dropdown ends
+          .top-nav.nav-collapse
+            ul.nav
+              li
+                a(href='#') Visit Site
+              li
+                form.navbar-search.pull-left
+                  input.search-query.span2(placeholder='Search', name='query', type='text')
+          // /.nav-collapse
+    // topbar ends
+    .container-fluid
+      .row-fluid
+        // left menu starts
+        .span2.main-menu-span
+          .well.nav-collapse.sidebar-nav
+            ul.nav.nav-tabs.nav-stacked.main-menu
+              li.nav-header.hidden-tablet Main
+              li
+                a.ajax-link(href='index.html')
+                  i.icon-home
+                  span.hidden-tablet  Dashboard
+              li
+                a.ajax-link(href='ui.html')
+                  i.icon-eye-open
+                  span.hidden-tablet  UI Features
+              li
+                a.ajax-link(href='form.html')
+                  i.icon-edit
+                  span.hidden-tablet  Forms
+              li
+                a.ajax-link(href='chart.html')
+                  i.icon-list-alt
+                  span.hidden-tablet  Charts
+              li
+                a.ajax-link(href='typography.html')
+                  i.icon-font
+                  span.hidden-tablet  Typography
+              li
+                a.ajax-link(href='gallery.html')
+                  i.icon-picture
+                  span.hidden-tablet  Gallery
+              li.nav-header.hidden-tablet Sample Section
+              li
+                a.ajax-link(href='table.html')
+                  i.icon-align-justify
+                  span.hidden-tablet  Tables
+              li
+                a.ajax-link(href='calendar.html')
+                  i.icon-calendar
+                  span.hidden-tablet  Calendar
+              li
+                a.ajax-link(href='grid.html')
+                  i.icon-th
+                  span.hidden-tablet  Grid
+              li
+                a.ajax-link(href='file-manager.html')
+                  i.icon-folder-open
+                  span.hidden-tablet  File Manager
+              li
+                a(href='tour.html')
+                  i.icon-globe
+                  span.hidden-tablet  Tour
+              li
+                a.ajax-link(href='icon.html')
+                  i.icon-star
+                  span.hidden-tablet  Icons
+              li
+                a(href='error.html')
+                  i.icon-ban-circle
+                  span.hidden-tablet  Error Page
+              li
+                a(href='login.html')
+                  i.icon-lock
+                  span.hidden-tablet  Login Page
+            label#for-is-ajax.hidden-tablet(for='is-ajax')
+              input#is-ajax(type='checkbox')
+              | Ajax on menu
+          // /.well
+        // /span
+        // left menu ends
+        noscript
+          .alert.alert-block.span10
+            h4.alert-heading Warning!
+            p
+              | You need to have
+              a(href='http://en.wikipedia.org/wiki/JavaScript', target='_blank') JavaScript
+              | enabled to use this site.
+        #content.span10
+          // content starts
+          div
+            ul.breadcrumb
+              li
+                a(href='#') Home
+                span.divider /
+              li
+                a(href='#') Typography
+          .row-fluid.sortable
+            .box.span9
+              .box-header.well(data-original-title='data-original-title')
+                h2
+                  i.icon-font
+                  | Typography
+                .box-icon
+                  a.btn.btn-setting.btn-round(href='#')
+                    i.icon-cog
+                  a.btn.btn-minimize.btn-round(href='#')
+                    i.icon-chevron-up
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                .page-header
+                  h1
+                    | Typography
+                    small Headings, paragraphs, lists, and other inline type elements
+                .row-fluid
+                  .span4
+                    h3 Sample text and paragraphs
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                  .span4
+                    h3 Example body text
+                    p
+                      | Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    p
+                      | Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.
+                  .span4
+                    .well
+                      h1 h1. Heading 1
+                      h2 h2. Heading 2
+                      h3 h3. Heading 3
+                      h4 h4. Heading 4
+                      h5 h5. Heading 5
+                      h6 h6. Heading 6
+                // /row
+                .row-fluid
+                  .span12
+                    h3 Example blockquotes
+                    .row-fluid
+                      .span6
+                        p Default blockquotes are styled as such:
+                        blockquote
+                          p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+                          small
+                            | Someone famous in
+                            cite(title='') Body of work
+                      .span6
+                        p You can always float your blockquote to the right:
+                        blockquote.pull-right
+                          p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+                          small
+                            | Someone famous in
+                            cite(title='') Body of work
+                .row-fluid
+                  .span6
+                    h3 More Sample Text
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                  .span6
+                    h3 And Paragraphs
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+                .row-fluid
+                  .span12
+                    h2 Example use of Tooltips
+                    p Hover over the links below to see tooltips:
+                    .tooltip-demo.well
+                      p.muted(style='margin-bottom: 0;')
+                        | Tight pants next level keffiyeh
+                        a(href='#', data-rel='tooltip', data-original-title='first tooltip') you probably
+                        | haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american appadata-rel
+                        a(href='#', data-rel='tooltip', data-original-title='Another tooltip') have a
+                        | terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A
+                        a(href='#', data-rel='tooltip', data-original-title='Another one here too') really ironic
+                        | artisan whatever keytar, scenester farm-to-table banksy Austin
+                        a(href='#', data-rel='tooltip', data-original-title='The last tip!') twitter handle
+                        | freegan cred raw denim single-origin coffee viral.
+            // /span
+            .box.span3
+              .box-header.well(data-original-title='data-original-title')
+                h3 Unordered List
+                .box-icon
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                ul
+                  li Lorem ipsum dolor sit amet
+                  li Consectetur adipiscing elit
+                  li Integer molestie lorem at massa
+                  li Facilisis in pretium nisl aliquet
+                  li
+                    | Nulla volutpat aliquam velit
+                    ul
+                      li Phasellus iaculis neque
+                      li Purus sodales ultricies
+                      li Vestibulum laoreet porttitor sem
+                      li Ac tristique libero volutpat at
+                  li Faucibus porta lacus fringilla vel
+                  li Aenean sit amet erat nunc
+                  li Eget porttitor lorem
+            // /span
+            .box.span3
+              .box-header.well(data-original-title='data-original-title')
+                h3 Ordered List
+                .box-icon
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                ol
+                  li Lorem ipsum dolor sit amet
+                  li Consectetur adipiscing elit
+                  li Integer molestie lorem at massa
+                  li Facilisis in pretium nisl aliquet
+                  li Nulla volutpat aliquam velit
+                  li Faucibus porta lacus fringilla vel
+                  li Aenean sit amet erat nunc
+                  li Eget porttitor lorem
+            // /span
+            .box.span3
+              .box-header.well(data-original-title='data-original-title')
+                h3 Description List
+                .box-icon
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                dl
+                  dt Description lists
+                  dd A description list is perfect for defining terms.
+                  dt Euismod
+                  dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                  dd Donec id elit non mi porta gravida at eget metus.
+                  dt Malesuada porta
+                  dd Etiam porta sem malesuada magna mollis euismod.
+            // /span
+          // /row
+          // content ends
+        // /#content.span10
+      // /fluid-row
+      hr
+      #myModal.modal.hide.fade
+        .modal-header
+          button.close(type='button', data-dismiss='modal') ×
+          h3 Settings
+        .modal-body
+          p Here settings can be configured...
+        .modal-footer
+          a.btn(href='#', data-dismiss='modal') Close
+          a.btn.btn-primary(href='#') Save changes
+      footer
+        p.pull-left
+          | ©
+          a(href='http://usman.it', target='_blank') Muhammad Usman
+          | 2012
+        p.pull-right
+          | Powered by:
+          a(href='http://usman.it/free-responsive-admin-template') Charisma
+    // /.fluid-container
+    //
+       external javascript
+      	================================================== 
+    // Placed at the end of the document so the pages load faster
+    // jQuery
+    script(src='js/jquery-1.7.2.min.js')
+    // jQuery UI
+    script(src='js/jquery-ui-1.8.21.custom.min.js')
+    // transition / effect library
+    script(src='js/bootstrap-transition.js')
+    // alert enhancer library
+    script(src='js/bootstrap-alert.js')
+    // modal / dialog library
+    script(src='js/bootstrap-modal.js')
+    // custom dropdown library
+    script(src='js/bootstrap-dropdown.js')
+    // scrolspy library
+    script(src='js/bootstrap-scrollspy.js')
+    // library for creating tabs
+    script(src='js/bootstrap-tab.js')
+    // library for advanced tooltip
+    script(src='js/bootstrap-tooltip.js')
+    // popover effect library
+    script(src='js/bootstrap-popover.js')
+    // button enhancer library
+    script(src='js/bootstrap-button.js')
+    // accordion library (optional, not used in demo)
+    script(src='js/bootstrap-collapse.js')
+    // carousel slideshow library (optional, not used in demo)
+    script(src='js/bootstrap-carousel.js')
+    // autocomplete library
+    script(src='js/bootstrap-typeahead.js')
+    // tour library
+    script(src='js/bootstrap-tour.js')
+    // library for cookie management
+    script(src='js/jquery.cookie.js')
+    // calander plugin
+    script(src='js/fullcalendar.min.js')
+    // data table plugin
+    script(src='js/jquery.dataTables.min.js')
+    // chart libraries start
+    script(src='js/excanvas.js')
+    script(src='js/jquery.flot.min.js')
+    script(src='js/jquery.flot.pie.min.js')
+    script(src='js/jquery.flot.stack.js')
+    script(src='js/jquery.flot.resize.min.js')
+    // chart libraries end
+    // select or dropdown enhancer
+    script(src='js/jquery.chosen.min.js')
+    // checkbox, radio, and file input styler
+    script(src='js/jquery.uniform.min.js')
+    // plugin for gallery image view
+    script(src='js/jquery.colorbox.min.js')
+    // rich text editor library
+    script(src='js/jquery.cleditor.min.js')
+    // notification plugin
+    script(src='js/jquery.noty.js')
+    // file manager library
+    script(src='js/jquery.elfinder.min.js')
+    // star rating plugin
+    script(src='js/jquery.raty.min.js')
+    // for iOS style toggle switch
+    script(src='js/jquery.iphone.toggle.js')
+    // autogrowing textarea plugin
+    script(src='js/jquery.autogrow-textarea.js')
+    // multiple file upload plugin
+    script(src='js/jquery.uploadify-3.1.min.js')
+    // history.js for cross-browser state change on ajax
+    script(src='js/jquery.history.js')
+    // application script for Charisma demo
+    script(src='js/charisma.js')

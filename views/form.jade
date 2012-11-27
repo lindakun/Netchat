@@ -1,0 +1,437 @@
+!!! 5
+html(lang='zh')
+  head
+    include includes/head
+  body
+    // topbar starts
+    .navbar
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.top-nav.nav-collapse,.sidebar-nav.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='index.html')
+            img(alt='Charisma Logo', src='img/logo20.png')
+            span Charisma
+          // theme selector starts
+          .btn-group.pull-right.theme-container
+            a.btn.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.icon-tint
+              span.hidden-phone  Change Theme / Skin
+              span.caret
+            ul#themes.dropdown-menu
+              li
+                a(data-value='classic', href='#')
+                  i.icon-blank
+                  | Classic
+              li
+                a(data-value='cerulean', href='#')
+                  i.icon-blank
+                  | Cerulean
+              li
+                a(data-value='cyborg', href='#')
+                  i.icon-blank
+                  | Cyborg
+              li
+                a(data-value='redy', href='#')
+                  i.icon-blank
+                  | Redy
+              li
+                a(data-value='journal', href='#')
+                  i.icon-blank
+                  | Journal
+              li
+                a(data-value='simplex', href='#')
+                  i.icon-blank
+                  | Simplex
+              li
+                a(data-value='slate', href='#')
+                  i.icon-blank
+                  | Slate
+              li
+                a(data-value='spacelab', href='#')
+                  i.icon-blank
+                  | Spacelab
+              li
+                a(data-value='united', href='#')
+                  i.icon-blank
+                  | United
+          // theme selector ends
+          // user dropdown starts
+          .btn-group.pull-right
+            a.btn.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.icon-user
+              span.hidden-phone  admin
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='#') Profile
+              li.divider
+              li
+                a(href='login.html') Logout
+          // user dropdown ends
+          .top-nav.nav-collapse
+            ul.nav
+              li
+                a(href='#') Visit Site
+              li
+                form.navbar-search.pull-left
+                  input.search-query.span2(placeholder='Search', name='query', type='text')
+          // /.nav-collapse
+    // topbar ends
+    .container-fluid
+      .row-fluid
+        // left menu starts
+        .span2.main-menu-span
+          .well.nav-collapse.sidebar-nav
+            ul.nav.nav-tabs.nav-stacked.main-menu
+              li.nav-header.hidden-tablet Main
+              li
+                a.ajax-link(href='index.html')
+                  i.icon-home
+                  span.hidden-tablet  Dashboard
+              li
+                a.ajax-link(href='ui.html')
+                  i.icon-eye-open
+                  span.hidden-tablet  UI Features
+              li
+                a.ajax-link(href='form.html')
+                  i.icon-edit
+                  span.hidden-tablet  Forms
+              li
+                a.ajax-link(href='chart.html')
+                  i.icon-list-alt
+                  span.hidden-tablet  Charts
+              li
+                a.ajax-link(href='typography.html')
+                  i.icon-font
+                  span.hidden-tablet  Typography
+              li
+                a.ajax-link(href='gallery.html')
+                  i.icon-picture
+                  span.hidden-tablet  Gallery
+              li.nav-header.hidden-tablet Sample Section
+              li
+                a.ajax-link(href='table.html')
+                  i.icon-align-justify
+                  span.hidden-tablet  Tables
+              li
+                a.ajax-link(href='calendar.html')
+                  i.icon-calendar
+                  span.hidden-tablet  Calendar
+              li
+                a.ajax-link(href='grid.html')
+                  i.icon-th
+                  span.hidden-tablet  Grid
+              li
+                a.ajax-link(href='file-manager.html')
+                  i.icon-folder-open
+                  span.hidden-tablet  File Manager
+              li
+                a(href='tour.html')
+                  i.icon-globe
+                  span.hidden-tablet  Tour
+              li
+                a.ajax-link(href='icon.html')
+                  i.icon-star
+                  span.hidden-tablet  Icons
+              li
+                a(href='error.html')
+                  i.icon-ban-circle
+                  span.hidden-tablet  Error Page
+              li
+                a(href='login.html')
+                  i.icon-lock
+                  span.hidden-tablet  Login Page
+            label#for-is-ajax.hidden-tablet(for='is-ajax')
+              input#is-ajax(type='checkbox')
+              | Ajax on menu
+          // /.well
+        // /span
+        // left menu ends
+        noscript
+          .alert.alert-block.span10
+            h4.alert-heading Warning!
+            p
+              | You need to have
+              a(href='http://en.wikipedia.org/wiki/JavaScript', target='_blank') JavaScript
+              | enabled to use this site.
+        #content.span10
+          // content starts
+          div
+            ul.breadcrumb
+              li
+                a(href='#') Home
+                span.divider /
+              li
+                a(href='#') Forms
+          .row-fluid.sortable
+            .box.span12
+              .box-header.well(data-original-title='data-original-title')
+                h2
+                  i.icon-edit
+                  | Form Elements
+                .box-icon
+                  a.btn.btn-setting.btn-round(href='#')
+                    i.icon-cog
+                  a.btn.btn-minimize.btn-round(href='#')
+                    i.icon-chevron-up
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                form.form-horizontal
+                  fieldset
+                    legend Datepicker, Autocomplete, WYSIWYG
+                    .control-group
+                      label.control-label(for='typeahead') Auto complete 
+                      .controls
+                        input#typeahead.span6.typeahead(type='text', data-provide='typeahead', data-items='4', data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]')
+                        p.help-block Start typing to activate auto complete!
+                    .control-group
+                      label.control-label(for='date01') Date input
+                      .controls
+                        input#date01.input-xlarge.datepicker(type='text', value='02/16/12')
+                    .control-group
+                      label.control-label(for='fileInput') File input
+                      .controls
+                        input#fileInput.input-file.uniform_on(type='file')
+                    .control-group
+                      label.control-label(for='textarea2') Textarea WYSIWYG
+                      .controls
+                        textarea#textarea2.cleditor(rows='3')
+                    .form-actions
+                      button.btn.btn-primary(type='submit') Save changes
+                      button.btn(type='reset') Cancel
+            // /span
+          // /row
+          .row-fluid.sortable
+            .box.span12
+              .box-header.well(data-original-title='data-original-title')
+                h2
+                  i.icon-edit
+                  | Form Elements
+                .box-icon
+                  a.btn.btn-setting.btn-round(href='#')
+                    i.icon-cog
+                  a.btn.btn-minimize.btn-round(href='#')
+                    i.icon-chevron-up
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                form.form-horizontal
+                  fieldset
+                    .control-group
+                      label.control-label(for='focusedInput') Focused input
+                      .controls
+                        input#focusedInput.input-xlarge.focused(type='text', value='This is focused…')
+                    .control-group
+                      label.control-label Uneditable input
+                      .controls
+                        span.input-xlarge.uneditable-input Some value here
+                    .control-group
+                      label.control-label(for='disabledInput') Disabled input
+                      .controls
+                        input#disabledInput.input-xlarge.disabled(type='text', placeholder='Disabled input here…', disabled='')
+                    .control-group
+                      label.control-label(for='optionsCheckbox2') Disabled checkbox
+                      .controls
+                        label.checkbox
+                          input#optionsCheckbox2(type='checkbox', value='option1', disabled='')
+                          | This is a disabled checkbox
+                    .control-group.warning
+                      label.control-label(for='inputWarning') Input with warning
+                      .controls
+                        input#inputWarning(type='text')
+                        span.help-inline Something may have gone wrong
+                    .control-group.error
+                      label.control-label(for='inputError') Input with error
+                      .controls
+                        input#inputError(type='text')
+                        span.help-inline Please correct the error
+                    .control-group.success
+                      label.control-label(for='inputSuccess') Input with success
+                      .controls
+                        input#inputSuccess(type='text')
+                        span.help-inline Woohoo!
+                    .control-group
+                      label.control-label(for='selectError3') Plain Select
+                      .controls
+                        select#selectError3
+                          option Option 1
+                          option Option 2
+                          option Option 3
+                          option Option 4
+                          option Option 5
+                    .control-group
+                      label.control-label(for='selectError') Modern Select
+                      .controls
+                        select#selectError(data-rel='chosen')
+                          option Option 1
+                          option Option 2
+                          option Option 3
+                          option Option 4
+                          option Option 5
+                    .control-group
+                      label.control-label(for='selectError1') Multiple Select / Tags
+                      .controls
+                        select#selectError1(multiple='multiple', data-rel='chosen')
+                          option Option 1
+                          option(selected='selected') Option 2
+                          option Option 3
+                          option Option 4
+                          option Option 5
+                    .control-group
+                      label.control-label(for='selectError2') Group Select
+                      .controls
+                        select#selectError2(data-placeholder='Your Favorite Football Team', data-rel='chosen')
+                          option(value='')
+                          optgroup(label='NFC EAST')
+                            option Dallas Cowboys
+                            option New York Giants
+                            option Philadelphia Eagles
+                            option Washington Redskins
+                          optgroup(label='NFC NORTH')
+                            option Chicago Bears
+                            option Detroit Lions
+                            option Green Bay Packers
+                            option Minnesota Vikings
+                          optgroup(label='NFC SOUTH')
+                            option Atlanta Falcons
+                            option Carolina Panthers
+                            option New Orleans Saints
+                            option Tampa Bay Buccaneers
+                          optgroup(label='NFC WEST')
+                            option Arizona Cardinals
+                            option St. Louis Rams
+                            option San Francisco 49ers
+                            option Seattle Seahawks
+                          optgroup(label='AFC EAST')
+                            option Buffalo Bills
+                            option Miami Dolphins
+                            option New England Patriots
+                            option New York Jets
+                          optgroup(label='AFC NORTH')
+                            option Baltimore Ravens
+                            option Cincinnati Bengals
+                            option Cleveland Browns
+                            option Pittsburgh Steelers
+                          optgroup(label='AFC SOUTH')
+                            option Houston Texans
+                            option Indianapolis Colts
+                            option Jacksonville Jaguars
+                            option Tennessee Titans
+                          optgroup(label='AFC WEST')
+                            option Denver Broncos
+                            option Kansas City Chiefs
+                            option Oakland Raiders
+                            option San Diego Chargers
+                    .form-actions
+                      button.btn.btn-primary(type='submit') Save changes
+                      button.btn Cancel
+            // /span
+          // /row
+          .row-fluid.sortable
+            .box.span12
+              .box-header.well(data-original-title='data-original-title')
+                h2
+                  i.icon-edit
+                  | Form Elements
+                .box-icon
+                  a.btn.btn-setting.btn-round(href='#')
+                    i.icon-cog
+                  a.btn.btn-minimize.btn-round(href='#')
+                    i.icon-chevron-up
+                  a.btn.btn-close.btn-round(href='#')
+                    i.icon-remove
+              .box-content
+                form.form-horizontal
+                  fieldset
+                    .control-group
+                      label.control-label(for='prependedInput') Prepended text
+                      .controls
+                        .input-prepend
+                          span.add-on @
+                          input#prependedInput(size='16', type='text')
+                        p.help-block Here's some help text
+                    .control-group
+                      label.control-label(for='appendedInput') Appended text
+                      .controls
+                        .input-append
+                          input#appendedInput(size='16', type='text')
+                          span.add-on .00
+                        span.help-inline Here's more help text
+                    .control-group
+                      label.control-label(for='appendedPrependedInput') Append and prepend
+                      .controls
+                        .input-prepend.input-append
+                          span.add-on $
+                          input#appendedPrependedInput(size='16', type='text')
+                          span.add-on .00
+                    .control-group
+                      label.control-label(for='appendedInputButton') Append with button
+                      .controls
+                        .input-append
+                          input#appendedInputButton(size='16', type='text')
+                          button.btn(type='button') Go!
+                    .control-group
+                      label.control-label(for='appendedInputButtons') Two-button append
+                      .controls
+                        .input-append
+                          input#appendedInputButtons(size='16', type='text')
+                          button.btn(type='button') Search
+                          button.btn(type='button') Options
+                    .control-group
+                      label.control-label Checkboxes
+                      .controls
+                        label.checkbox.inline
+                          input#inlineCheckbox1(type='checkbox', value='option1')
+                          | Option 1
+                        label.checkbox.inline
+                          input#inlineCheckbox2(type='checkbox', value='option2')
+                          | Option 2
+                        label.checkbox.inline
+                          input#inlineCheckbox3(type='checkbox', value='option3')
+                          | Option 3
+                    .control-group
+                      label.control-label File Upload
+                      .controls
+                        input(type='file')
+                    .control-group
+                      label.control-label Radio buttons
+                      .controls
+                        label.radio
+                          input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                          | Option one is this and that—be sure to include why it's great
+                        div(style='clear: both;')
+                        label.radio
+                          input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                          | Option two can be something else and selecting it will deselect option one
+                    .form-actions
+                      button.btn.btn-primary(type='submit') Save changes
+                      button.btn Cancel
+            // /span
+          // /row
+          // content ends
+        // /#content.span10
+      // /fluid-row
+      hr
+      #myModal.modal.hide.fade
+        .modal-header
+          button.close(type='button', data-dismiss='modal') ×
+          h3 Settings
+        .modal-body
+          p Here settings can be configured...
+        .modal-footer
+          a.btn(href='#', data-dismiss='modal') Close
+          a.btn.btn-primary(href='#') Save changes
+      footer
+        p.pull-left
+          | ©
+          a(href='http://usman.it', target='_blank') Muhammad Usman
+          | 2012
+        p.pull-right
+          | Powered by:
+          a(href='http://usman.it/free-responsive-admin-template') Charisma
+    // /.fluid-container
+    include includes/script

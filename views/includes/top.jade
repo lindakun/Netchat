@@ -1,0 +1,75 @@
+// topbar starts
+div.navbar
+  .navbar-inner
+    .container-fluid
+      a.btn.btn-navbar(data-toggle='collapse', data-target='.top-nav.nav-collapse,.sidebar-nav.nav-collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.brand(href='index')
+        img(alt='Charisma Logo', src='img/logo20.png')
+        span Lamers
+      // theme selector starts
+      .btn-group.pull-right.theme-container
+        a.btn.dropdown-toggle(data-toggle='dropdown', href='#')
+          i.icon-tint
+          span.hidden-phone  更换 主题 / 皮肤
+          span.caret
+        ul#themes.dropdown-menu
+          li
+            a(data-value='classic', href='#')
+              i.icon-blank
+              | Classic
+          li
+            a(data-value='cerulean', href='#')
+              i.icon-blank
+              | Cerulean
+          li
+            a(data-value='cyborg', href='#')
+              i.icon-blank
+              | Cyborg
+          li
+            a(data-value='redy', href='#')
+              i.icon-blank
+              | Redy
+          li
+            a(data-value='journal', href='#')
+              i.icon-blank
+              | Journal
+          li
+            a(data-value='simplex', href='#')
+              i.icon-blank
+              | Simplex
+          li
+            a(data-value='slate', href='#')
+              i.icon-blank
+              | Slate
+          li
+            a(data-value='spacelab', href='#')
+              i.icon-blank
+              | Spacelab
+          li
+            a(data-value='united', href='#')
+              i.icon-blank
+              | United
+      // theme selector ends
+      // user dropdown starts
+      .btn-group.pull-right
+        a.btn.dropdown-toggle(data-toggle='dropdown', href='#')
+          i.icon-user
+          span.hidden-phone  管理员
+          span.caret
+        ul.dropdown-menu
+          li
+            a(href='#') 设置
+          li.divider
+          li
+            a(href='login') 退出
+      // user dropdown ends
+      .top-nav.nav-collapse
+        ul.nav
+          li
+            a(href='#') 访问站点
+          li
+            form.navbar-search.pull-left
+              input.search-query.span2(placeholder='Search', name='query', type='text')

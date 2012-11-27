@@ -1,0 +1,37 @@
+!!! 5
+html(lang='zh')
+  head
+    include includes/head
+  body
+    .container-fluid
+      .row-fluid
+        .row-fluid
+          .span12.center.login-header
+            h2 欢迎来到NetChat
+        .row-fluid
+          .well.span5.center.login-box
+            .alert.alert-info
+              -if(!err)
+                | 请输入用户名和密码.
+              -else
+                span(style='color:red') #{err}
+            form.form-horizontal(action='loginAction', method='post')
+              fieldset
+                .input-prepend(title='Username', data-rel='tooltip')
+                  span.add-on
+                    i.icon-user
+                  input#username.input-large.span10(autofocus='autofocus', name='username', type='text', value='admin')
+                .clearfix
+                .input-prepend(title='Password', data-rel='tooltip')
+                  span.add-on
+                    i.icon-lock
+                  input#password.input-large.span10(name='password', type='password', value='admin')
+                .clearfix
+                .input-prepend
+                  label.remember(for='remember')
+                    input#remember(type='checkbox')
+                    | 记住密码
+                .clearfix
+                p.center.span5
+                  button.btn.btn-primary(type='submit') 登录NetChat
+    include includes/head
