@@ -45,11 +45,11 @@ app.configure('development', function () {
  * @param {Object} req
  * @param {Object} res
  */
-app.get('/', index.showLogin);
+
 app.get('/chat', index.gToChat);
 app.post('/chat', index.pToChat);
 
-
+app.get("/", index.main);
 app.post('/login', index.login);
 
 //=================配置socket.io===================

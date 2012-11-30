@@ -11,10 +11,12 @@ html(lang='zh')
         .row-fluid
           .well.span5.center.login-box
             -if(!err)
-              .alert.alert-info 请输入用户名和密码.
+              .alert.alert-info
+                span 请输入用户名和密码.
                 a(href='#') 注册账号
             -else
-              .alert.alert-error #{err}
+              .alert.alert-error
+                span #{err}
                 a(href='#') 注册账号
             form#loginform.form-horizontal(action='login', method='post')
               fieldset
@@ -37,13 +39,4 @@ html(lang='zh')
                 p.center.span5
                   button.btn.btn-primary(type='submit') 登录NetChat
     include includes/script
-    script
-      jQuery("#loginform").validationEngine({
-        //触发的事件  validationEventTriggers:"keyup blur"
-        //validationEventTriggers:"blur",
-        //是否即时验证，false为提交表单时验证,默认true
-        inlineValidation: false,
-        //为true时即使有不符合的也提交表单,false表示只有全部通过验证了才能提交表单,默认false
-        success :  false,
-        failure : function() {}
-      });
+    script(src='js/login.js')

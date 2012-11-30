@@ -59,17 +59,17 @@ exports.pToChat = function (req, res) {
 
 //===================新界面=================
 /*
- * 显示登录页面
- * */
-exports.showLogin = function (req, res) {
+* 显示主页面
+*
+* */
+exports.main = function(req, res){
   if (req.session.name && req.session.name !== '') {
-    //需要判断下是否已经登录
-    res.redirect('/chat');
+    res.render('index', {name:req.session.name});
   } else {
     //读取登录页面，要求登录
     res.render('login', {err:null});
   }
-};
+}
 
 /*
  * 登录
