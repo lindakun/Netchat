@@ -19,6 +19,7 @@
     "socket.io-client":"*",
     "stylus":"*",
     "uglify-js":"*",
-    "cookie":"0.0.5"
+    "cookie":"0.0.5",
+    "mysql":"*"
   }
 }

@@ -1,6 +1,23 @@
 var url = require('url'),
     fs = require('fs'),
+    mysql = require('mysql'),
     config = require('../config');
+
+var TABLE_NC_USER = 'nc_user';
+var connection = mysql.createConnection({
+  host:config.mysql.host,
+  user:config.mysql.username,
+  password:config.mysql.password,
+  database:config.mysql.dbname
+});
+connection.connect(function (err) {
+  if (err) {
+    console.log('连接数据库出错!');
+    throw err;
+  }
+  console.log('数据库已连接!');
+});
+
 /*
  * 访问主页
  * */
@@ -40,8 +57,9 @@ exports.pToChat = function (req, res) {
   }
 };
 
+//===================新界面=================
 /*
- * 显示登录
+ * 显示登录页面
  * */
 exports.showLogin = function (req, res) {
   if (req.session.name && req.session.name !== '') {
@@ -49,19 +67,39 @@ exports.showLogin = function (req, res) {
     res.redirect('/chat');
   } else {
     //读取登录页面，要求登录
-    res.render('login',{err:null});
+    res.render('login', {err:null});
   }
 };
 
 /*
- * 显示登录
+ * 登录
  * */
-exports.toLogin = function (req, res) {
-  if (req.session.name && req.session.name !== '') {
-    //需要判断下是否已经登录
-    res.redirect('/chat');
-  } else {
-    //读取登录页面，要求登录
-    res.render('login',{err:null});
-  }
+exports.login = function (req, res) {
+  var name = req.body['username'];
+  var passwd = req.body['password'];
+  var errmsg = null;
+  connection.query('SELECT * FROM nc_user WHERE username = ?', [name], function(err, results) {
+    if(err){
+      console.log(err);
+      throw err;
+      //res.render('login', {err:err});
+    }
+    if(results.length < 1){
+      errmsg = '用户不存在!';
+    }else{
+      var db_passwd = results[0]['password'];
+      if(passwd !== db_passwd){
+        errmsg = '密码错误!';
+      }
+    }
+    if(errmsg){
+      console.log(errmsg);
+      res.render('login', {err:errmsg});
+    }else{
+      //设置session
+      req.session.name = name;
+      res.render('index', {name:name});
+    }
+  });
 };
+

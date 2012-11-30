@@ -465,6 +465,9 @@ float:right !important;
 .remember{
 margin-top:3px;
 }
+#forgetpw{
+  margin-left: 5px;
+}
 .green {
 color: #458746;
 }

@@ -15,7 +15,7 @@ app.configure(function () {
   app.set('port', config.site.port || 3000);
   app.set('views', config.site.baseDir + '/views');
   app.set('view engine', config.site.viewEngine || 'jade');
-  app.set("view cache", config.site.cache); //上线开启模板缓存
+  //app.set("view cache", config.site.cache); //上线开启模板缓存
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -49,6 +49,9 @@ app.get('/', index.showLogin);
 app.get('/chat', index.gToChat);
 app.post('/chat', index.pToChat);
 
+
+app.post('/login', index.login);
+
 //=================配置socket.io===================
 /**
  * 配置socket.io
@@ -73,6 +76,9 @@ io.sockets.on('connection', function(socket){
   main.main(io, socket);
 });
 
+/*
+* 启动Http监听
+* */
 server.listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
 });

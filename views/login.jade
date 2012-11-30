@@ -10,28 +10,40 @@ html(lang='zh')
             h2 欢迎来到NetChat
         .row-fluid
           .well.span5.center.login-box
-            .alert.alert-info
-              -if(!err)
-                | 请输入用户名和密码.
-              -else
-                span(style='color:red') #{err}
-            form.form-horizontal(action='loginAction', method='post')
+            -if(!err)
+              .alert.alert-info 请输入用户名和密码.
+                a(href='#') 注册账号
+            -else
+              .alert.alert-error #{err}
+                a(href='#') 注册账号
+            form#loginform.form-horizontal(action='login', method='post')
               fieldset
-                .input-prepend(title='Username', data-rel='tooltip')
+                .input-prepend(title='用户名', data-rel='tooltip')
                   span.add-on
                     i.icon-user
-                  input#username.input-large.span10(autofocus='autofocus', name='username', type='text', value='admin')
+                  input#username.input-large.span10(class='validate[required]', autofocus='autofocus', name='username', type='text', value='')
                 .clearfix
-                .input-prepend(title='Password', data-rel='tooltip')
+                .input-prepend(title='密码', data-rel='tooltip')
                   span.add-on
                     i.icon-lock
-                  input#password.input-large.span10(name='password', type='password', value='admin')
+                  input#password.input-large.span10(class='validate[required]', name='password', type='password', value='')
                 .clearfix
                 .input-prepend
                   label.remember(for='remember')
                     input#remember(type='checkbox')
                     | 记住密码
+                    a#forgetpw(href='#') 忘记密码?
                 .clearfix
                 p.center.span5
                   button.btn.btn-primary(type='submit') 登录NetChat
-    include includes/head
+    include includes/script
+    script
+      jQuery("#loginform").validationEngine({
+        //触发的事件  validationEventTriggers:"keyup blur"
+        //validationEventTriggers:"blur",
+        //是否即时验证，false为提交表单时验证,默认true
+        inlineValidation: false,
+        //为true时即使有不符合的也提交表单,false表示只有全部通过验证了才能提交表单,默认false
+        success :  false,
+        failure : function() {}
+      });

@@ -6,6 +6,13 @@
  * To change this template use File | Settings | File Templates.
  */
 module.exports = {
+  mysql:{
+    dbname:'netchat',
+    host:'localhost',
+    port:'3306',
+    username:'root',
+    password:'koff'
+  },
   site:{
     //baseUrl: the URL that mongo express will be located at
     //Remember to add the forward slash at the end!
